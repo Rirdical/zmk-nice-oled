@@ -68,12 +68,12 @@ int zmk_widget_sleep_status_init(struct zmk_widget_sleep_status *widget, lv_obj_
     sys_slist_append(&widgets, &widget->node);
     widget->obj = lv_obj_create(parent);
     lv_obj_set_size(widget->obj, 160, 68);
-    widget->art = lv_img_create(widget->obj);
+    widget->art = lv_image_create(widget->obj);
 #if IS_ENABLED(CONFIG_NICE_EPAPER_ON)
-    lv_img_set_src(widget->art, &vim_68x160);
+    lv_image_set_src(widget->art, &vim_68x160);
 #else
-    // lv_img_set_src(widget->art, &sleep_oled);
-    lv_img_set_src(widget->art, &vim_32x128);
+    // lv_image_set_src(widget->art, &sleep_oled);
+    lv_image_set_src(widget->art, &vim_32x128);
 #endif
     lv_obj_align(widget->art, LV_ALIGN_TOP_LEFT, 0, 0);
 

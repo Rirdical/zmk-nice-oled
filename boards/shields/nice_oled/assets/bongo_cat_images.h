@@ -26,7 +26,7 @@ LV_IMG_DECLARE(bongo_cat_tap2_04);
 
 // -------- Array of Pointers to Image Descriptors --------
 // Provides easy access to all images defined in the corresponding .c file
-const lv_img_dsc_t *5_output_images_rotate_flip_images[17] = {
+const lv_image_dsc_t *5_output_images_rotate_flip_images[17] = {
     &bongo_cat_double_tap1_01,
     &bongo_cat_double_tap1_02,
     &bongo_cat_double_tap1_03,

@@ -17,7 +17,7 @@ LV_IMG_DECLARE(cat_7);
 
 // -------- Array of Pointers to Image Descriptors --------
 // Provides easy access to all images defined in the corresponding .c file
-const lv_img_dsc_t *5_output_images_rotate_flip_images[8] = {
+const lv_image_dsc_t *5_output_images_rotate_flip_images[8] = {
     &cat_0,
     &cat_1,
     &cat_2,

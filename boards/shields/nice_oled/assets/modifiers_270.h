@@ -21,7 +21,7 @@ LV_IMG_DECLARE(win_white_0);
 
 // -------- Array of Pointers to Image Descriptors --------
 // Provides easy access to all images defined in the corresponding .c file
-const lv_img_dsc_t *5_output_images_rotate_flip_TRABAJADO_images[12] = {
+const lv_image_dsc_t *5_output_images_rotate_flip_TRABAJADO_images[12] = {
     &alt_0,
     &alt_white_0,
     &cmd_0,

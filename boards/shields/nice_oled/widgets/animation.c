@@ -20,7 +20,7 @@ LV_IMG_DECLARE(crystal_14);
 LV_IMG_DECLARE(crystal_15);
 LV_IMG_DECLARE(crystal_16);
 
-const lv_img_dsc_t *crystal_imgs[] = {
+const lv_image_dsc_t *crystal_imgs[] = {
     &crystal_01, &crystal_02, &crystal_03, &crystal_04, &crystal_05, &crystal_06,
     &crystal_07, &crystal_08, &crystal_09, &crystal_10, &crystal_11, &crystal_12,
     &crystal_13, &crystal_14, &crystal_15, &crystal_16,
@@ -46,7 +46,7 @@ LV_IMG_DECLARE(head_13);
 LV_IMG_DECLARE(head_14);
 LV_IMG_DECLARE(head_15);
 
-const lv_img_dsc_t *head_imgs[] = {&head_00, &head_01, &head_02, &head_03, &head_04, &head_05,
+const lv_image_dsc_t *head_imgs[] = {&head_00, &head_01, &head_02, &head_03, &head_04, &head_05,
                                    &head_06, &head_07, &head_08, &head_09, &head_10, &head_11,
                                    &head_12, &head_13, &head_14, &head_15};
 
@@ -60,7 +60,7 @@ LV_IMG_DECLARE(cat_5);
 LV_IMG_DECLARE(cat_6);
 LV_IMG_DECLARE(cat_7);
 
-const lv_img_dsc_t *cat_imgs[] = {&cat_0, &cat_1, &cat_2, &cat_3, &cat_4, &cat_5, &cat_6, &cat_7};
+const lv_image_dsc_t *cat_imgs[] = {&cat_0, &cat_1, &cat_2, &cat_3, &cat_4, &cat_5, &cat_6, &cat_7};
 
 #elif IS_ENABLED(CONFIG_NICE_OLED_WIDGET_ANIMATION_PERIPHERAL_SPACEMAN)
 
@@ -85,7 +85,7 @@ LV_IMG_DECLARE(spaceman_17);
 LV_IMG_DECLARE(spaceman_18);
 LV_IMG_DECLARE(spaceman_19);
 
-const lv_img_dsc_t *spaceman_imgs[] = {&spaceman_00, &spaceman_01, &spaceman_02, &spaceman_03,
+const lv_image_dsc_t *spaceman_imgs[] = {&spaceman_00, &spaceman_01, &spaceman_02, &spaceman_03,
                                        &spaceman_04, &spaceman_05, &spaceman_06, &spaceman_07,
                                        &spaceman_08, &spaceman_09, &spaceman_10, &spaceman_11,
                                        &spaceman_12, &spaceman_13, &spaceman_14, &spaceman_15,
@@ -141,7 +141,7 @@ LV_IMG_DECLARE(pokemon_45);
 LV_IMG_DECLARE(pokemon_46);
 LV_IMG_DECLARE(pokemon_47);
 
-const lv_img_dsc_t *pokemon_imgs[] = {
+const lv_image_dsc_t *pokemon_imgs[] = {
     &pokemon_00, &pokemon_01, &pokemon_02, &pokemon_03, &pokemon_04, &pokemon_05, &pokemon_06,
     &pokemon_07, &pokemon_08, &pokemon_09, &pokemon_10, &pokemon_11, &pokemon_12, &pokemon_13,
     &pokemon_14, &pokemon_15, &pokemon_16, &pokemon_17, &pokemon_18, &pokemon_19, &pokemon_20,
@@ -197,15 +197,15 @@ void draw_animation(lv_obj_t *canvas, struct zmk_widget_screen *widget) {
       // IS_ENABLED(CONFIG_NICE_OLED_WIDGET_STATIC_IMAGE_PERIPHERAL)
 
 #if IS_ENABLED(CONFIG_NICE_OLED_WIDGET_STATIC_IMAGE_PERIPHERAL_VIM)
-    lv_img_set_src(art, FIXED_IMAGE_VIM);
+    lv_image_set_src(art, FIXED_IMAGE_VIM);
 #elif IS_ENABLED(CONFIG_NICE_OLED_WIDGET_STATIC_IMAGE_PERIPHERAL_VIP_MARCOS)
-    lv_img_set_src(art, FIXED_IMAGE_VIP_MARCOS);
+    lv_image_set_src(art, FIXED_IMAGE_VIP_MARCOS);
 #else
     int length = sizeof(crystal_imgs) / sizeof(crystal_imgs[0]);
     srand(k_uptime_get_32());
     int random_index = rand() % length;
 
-    lv_img_set_src(art, crystal_imgs[random_index]);
+    lv_image_set_src(art, crystal_imgs[random_index]);
 #endif
 
 #endif // IS_ENABLED(CONFIG_NICE_OLED_WIDGET_ANIMATION_PERIPHERAL)

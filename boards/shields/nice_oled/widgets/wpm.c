@@ -14,8 +14,8 @@ LV_IMG_DECLARE(grid);
     !IS_ENABLED(CONFIG_NICE_OLED_WIDGET_WPM_SPEEDOMETER)
 #else
 static void draw_gauge(lv_obj_t *canvas, const struct status_state *state) {
-    lv_draw_img_dsc_t img_dsc;
-    lv_draw_img_dsc_init(&img_dsc);
+    lv_draw_image_dsc_t img_dsc;
+    lv_draw_image_dsc_init(&img_dsc);
 
     lv_canvas_draw_img(canvas, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_Y, &gauge, &img_dsc);
 }
@@ -63,8 +63,8 @@ static void draw_needle(lv_obj_t *canvas, const struct status_state *state) {
 #if IS_ENABLED(CONFIG_NICE_OLED_WIDGET_RAW_HID) || !IS_ENABLED(CONFIG_NICE_OLED_WIDGET_WPM_GRAPH)
 #else
 static void draw_grid(lv_obj_t *canvas) {
-    lv_draw_img_dsc_t img_dsc;
-    lv_draw_img_dsc_init(&img_dsc);
+    lv_draw_image_dsc_t img_dsc;
+    lv_draw_image_dsc_init(&img_dsc);
 
     lv_canvas_draw_img(canvas, 0, 65, &grid, &img_dsc);
 }
@@ -143,7 +143,9 @@ static void draw_label(lv_obj_t *canvas, const struct status_state *state) {
 
     lv_draw_label_dsc_t label_left_dsc;
     init_label_dsc(&label_left_dsc, LVGL_FOREGROUND, DRAW_LABEL_FONTS, LV_TEXT_ALIGN_LEFT);
-    lv_canvas_draw_text(canvas, 0, DRAW_LABEL_WMP_Y, 25, &label_left_dsc, DRAW_LABEL_WMP);
+    { lv_obj_t * _lbl = lv_label_create(canvas);
+  lv_label_set_text(_lbl, DRAW_LABEL_WMP);
+  lv_obj_set_pos(_lbl, 0, DRAW_LABEL_WMP_Y); }
 
     lv_draw_label_dsc_t label_dsc_wpm;
     init_label_dsc(&label_dsc_wpm, LVGL_FOREGROUND, DRAW_LABEL_FONTS, DRAW_LABEL_TEXT_ALIGN);
@@ -151,15 +153,17 @@ static void draw_label(lv_obj_t *canvas, const struct status_state *state) {
     char wpm_text[6] = {};
 
     snprintf(wpm_text, sizeof(wpm_text), "%d", state->wpm[9]);
-    lv_canvas_draw_text(canvas, DRAW_LABEL_WMP_X, DRAW_LABEL_WMP_Y, 42, &label_dsc_wpm, wpm_text);
+    { lv_obj_t * _lbl = lv_label_create(canvas);
+  lv_label_set_text(_lbl, wpm_text);
+  lv_obj_set_pos(_lbl, DRAW_LABEL_WMP_X, DRAW_LABEL_WMP_Y); }
 }
 #endif // IS_ENABLED(CONFIG_NICE_OLED_WIDGET_WPM_NUMBER)
 
 #else // CONFIG_NICE_EPAPER_ON
 #if IS_ENABLED(CONFIG_NICE_OLED_WIDGET_WPM_SPEEDOMETER)
 static void draw_gauge(lv_obj_t *canvas, const struct status_state *state) {
-    lv_draw_img_dsc_t img_dsc;
-    lv_draw_img_dsc_init(&img_dsc);
+    lv_draw_image_dsc_t img_dsc;
+    lv_draw_image_dsc_init(&img_dsc);
 
     lv_canvas_draw_img(canvas, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_Y, &gauge, &img_dsc);
 }
@@ -220,8 +224,8 @@ static void draw_needle(lv_obj_t *canvas, const struct status_state *state) {
     !IS_ENABLED(CONFIG_NICE_OLED_WIDGET_WPM_GRAPH)
 #else
 static void draw_grid(lv_obj_t *canvas) {
-    lv_draw_img_dsc_t img_dsc;
-    lv_draw_img_dsc_init(&img_dsc);
+    lv_draw_image_dsc_t img_dsc;
+    lv_draw_image_dsc_init(&img_dsc);
 
     lv_canvas_draw_img(canvas, -1, 95, &grid, &img_dsc);
 }
@@ -288,11 +292,17 @@ static void draw_label(lv_obj_t *canvas, const struct status_state *state) {
     snprintf(wpm_text, sizeof(wpm_text), "%d", state->wpm[9]);
     // if wpm < 10, else if wpm => 10 and wpm < 100, else wpm >= 100
     if (state->wpm[9] < 10) {
-        lv_canvas_draw_text(canvas, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_X + 5, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_Y, 50, &label_dsc_wpm, wpm_text);
+        { lv_obj_t * _lbl = lv_label_create(canvas);
+  lv_label_set_text(_lbl, wpm_text);
+  lv_obj_set_pos(_lbl, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_X + 5, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_Y); }
     } else if (state->wpm[9] >= 10 && state->wpm[9] < 100) {
-        lv_canvas_draw_text(canvas, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_X + 2, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_Y, 50, &label_dsc_wpm, wpm_text);
+        { lv_obj_t * _lbl = lv_label_create(canvas);
+  lv_label_set_text(_lbl, wpm_text);
+  lv_obj_set_pos(_lbl, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_X + 2, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_Y); }
     } else {
-        lv_canvas_draw_text(canvas, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_Y, 50, &label_dsc_wpm, wpm_text);
+        { lv_obj_t * _lbl = lv_label_create(canvas);
+  lv_label_set_text(_lbl, wpm_text);
+  lv_obj_set_pos(_lbl, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_LABEL_CUSTOM_Y); }
     }
 }
 #endif // IS_ENABLED(CONFIG_NICE_OLED_WIDGET_WPM_NUMBER)

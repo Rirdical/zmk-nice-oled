@@ -13,7 +13,7 @@ LV_IMG_DECLARE(vim_68x160);
 
 // -------- Array of Pointers to Image Descriptors --------
 // Provides easy access to all images defined in the corresponding .c file
-const lv_img_dsc_t *5_output_images_rotate_flip_images[4] = {
+const lv_image_dsc_t *5_output_images_rotate_flip_images[4] = {
     &vim_32x100,
     &vim_32x128,
     &vim_68x69,

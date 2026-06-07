@@ -66,7 +66,7 @@ static void set_idle_frame(void *var, int32_t val) {
     LOG_DBG("BONGO: Idle animation frame: %d", val);
     lv_obj_t *img = (lv_obj_t *)var;
     int frame = val % IDLE_FRAMES;
-    lv_img_set_src(img, idle_images[frame]);
+    lv_image_set_src(img, idle_images[frame]);
 }
 
 static void start_idle_animation(lv_obj_t *obj) {
@@ -104,7 +104,7 @@ static void play_tap_animation(lv_obj_t *obj) {
 
     static uint8_t current_frame = 0;
     current_frame = (current_frame + 1) % TAP_FRAMES;
-    lv_img_set_src(obj, tap_images[current_frame]);
+    lv_image_set_src(obj, tap_images[current_frame]);
 }
 
 static void update_responsive_bongo_cat_anim(struct zmk_widget_responsive_bongo_cat *widget,
@@ -146,7 +146,7 @@ ZMK_SUBSCRIPTION(widget_responsive_bongo_cat, zmk_keycode_state_changed);
 
 int zmk_widget_responsive_bongo_cat_init(struct zmk_widget_responsive_bongo_cat *widget,
                                          lv_obj_t *parent) {
-    widget->obj = lv_img_create(parent);
+    widget->obj = lv_image_create(parent);
 
     // Initialize idle check timer
     if (idle_check_timer == NULL) {

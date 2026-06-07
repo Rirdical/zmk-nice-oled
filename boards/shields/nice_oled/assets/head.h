@@ -25,7 +25,7 @@ LV_IMG_DECLARE(head_15);
 
 // -------- Array of Pointers to Image Descriptors --------
 // Provides easy access to all images defined in the corresponding .c file
-const lv_img_dsc_t *5_output_images_rotate_flip_images[16] = {
+const lv_image_dsc_t *5_output_images_rotate_flip_images[16] = {
     &head_00,
     &head_01,
     &head_02,

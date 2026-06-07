@@ -57,7 +57,7 @@ LV_IMG_DECLARE(pokemon_47);
 
 // -------- Array of Pointers to Image Descriptors --------
 // Provides easy access to all images defined in the corresponding .c file
-const lv_img_dsc_t *5_output_images_rotate_flip_images[48] = {
+const lv_image_dsc_t *5_output_images_rotate_flip_images[48] = {
     &pokemon_00,
     &pokemon_01,
     &pokemon_02,
