@@ -17,7 +17,7 @@ static void draw_gauge(lv_obj_t *canvas, const struct status_state *state) {
     lv_draw_image_dsc_t img_dsc;
     lv_draw_image_dsc_init(&img_dsc);
 
-    lv_canvas_draw_img(canvas, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_Y, &gauge, &img_dsc);
+    lv_canvas_draw_image(canvas, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_Y, &gauge, &img_dsc);
 }
 
 static void draw_needle(lv_obj_t *canvas, const struct status_state *state) {
@@ -66,7 +66,7 @@ static void draw_grid(lv_obj_t *canvas) {
     lv_draw_image_dsc_t img_dsc;
     lv_draw_image_dsc_init(&img_dsc);
 
-    lv_canvas_draw_img(canvas, 0, 65, &grid, &img_dsc);
+    lv_canvas_draw_image(canvas, 0, 65, &grid, &img_dsc);
 }
 
 static void draw_graph(lv_obj_t *canvas, const struct status_state *state) {
@@ -165,7 +165,7 @@ static void draw_gauge(lv_obj_t *canvas, const struct status_state *state) {
     lv_draw_image_dsc_t img_dsc;
     lv_draw_image_dsc_init(&img_dsc);
 
-    lv_canvas_draw_img(canvas, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_Y, &gauge, &img_dsc);
+    lv_canvas_draw_image(canvas, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_WPM_GAUGE_CUSTOM_Y, &gauge, &img_dsc);
 }
 
 static void draw_needle(lv_obj_t *canvas, const struct status_state *state) {
@@ -227,7 +227,7 @@ static void draw_grid(lv_obj_t *canvas) {
     lv_draw_image_dsc_t img_dsc;
     lv_draw_image_dsc_init(&img_dsc);
 
-    lv_canvas_draw_img(canvas, -1, 95, &grid, &img_dsc);
+    lv_canvas_draw_image(canvas, -1, 95, &grid, &img_dsc);
 }
 
 static void draw_graph(lv_obj_t *canvas, const struct status_state *state) {

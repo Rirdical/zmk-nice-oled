@@ -329,7 +329,7 @@ static void draw_mods_status(lv_obj_t *canvas, const struct status_state *state)
         int current_x = base_x;
         int current_y = base_y + i * (img_size + spacing);
         const lv_image_dsc_t *img = selected ? mod_imgs_active[i] : mod_imgs_normal[i];
-        lv_canvas_draw_img(canvas, current_x, current_y, img, &img_dsc);
+        lv_canvas_draw_image(canvas, current_x, current_y, img, &img_dsc);
     }
 
 #elif IS_ENABLED(CONFIG_NICE_OLED_WIDGET_MODIFIERS_INDICATORS_FIXED_HOR)
@@ -342,7 +342,7 @@ static void draw_mods_status(lv_obj_t *canvas, const struct status_state *state)
         int current_x = base_x + i * (img_size + spacing);
         int current_y = base_y;
         const lv_image_dsc_t *img = selected ? mod_imgs_active[i] : mod_imgs_normal[i];
-        lv_canvas_draw_img(canvas, current_x, current_y, img, &img_dsc);
+        lv_canvas_draw_image(canvas, current_x, current_y, img, &img_dsc);
     }
 
 #elif IS_ENABLED(CONFIG_NICE_OLED_WIDGET_MODIFIERS_INDICATORS_FIXED_BOX)
@@ -362,7 +362,7 @@ static void draw_mods_status(lv_obj_t *canvas, const struct status_state *state)
         int current_x = base_x + offsets_box[i][0];
         int current_y = base_y + offsets_box[i][1];
         const lv_image_dsc_t *img = selected ? mod_imgs_active[i] : mod_imgs_normal[i];
-        lv_canvas_draw_img(canvas, current_x, current_y, img, &img_dsc);
+        lv_canvas_draw_image(canvas, current_x, current_y, img, &img_dsc);
     }
 
 #else
@@ -382,7 +382,7 @@ static void draw_mods_status(lv_obj_t *canvas, const struct status_state *state)
         int current_x = base_x + offsets_default[i][0];
         int current_y = base_y + offsets_default[i][1];
         const lv_image_dsc_t *img = selected ? mod_imgs_active[i] : mod_imgs_normal[i];
-        lv_canvas_draw_img(canvas, current_x, current_y, img, &img_dsc);
+        lv_canvas_draw_image(canvas, current_x, current_y, img, &img_dsc);
     }
 #endif
 

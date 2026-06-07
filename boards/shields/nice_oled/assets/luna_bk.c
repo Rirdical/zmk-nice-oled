@@ -780,8 +780,8 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_DOG_BARK2
 /* Descriptor: Dog Sit1 */
 const lv_image_dsc_t dog_sit1 = {
     .header.cf = LV_COLOR_FORMAT_I1,
-    .header.always_zero = 0,
-    .header.reserved = 0,
+    
+    
     .header.w = 32, /* Ancho de la imagen */
     .header.h = 22, /* Alto de la imagen */
     .data_size = sizeof(dog_sit1_map),

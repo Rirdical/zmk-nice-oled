@@ -21,7 +21,7 @@ static void draw_inactive_profiles(lv_obj_t *canvas, const struct status_state *
     lv_draw_image_dsc_t img_dsc;
     lv_draw_image_dsc_init(&img_dsc);
 
-    lv_canvas_draw_img(canvas, CONFIG_NICE_OLED_WIDGET_PROFILE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_PROFILE_CUSTOM_Y, &profiles, &img_dsc);
+    lv_canvas_draw_image(canvas, CONFIG_NICE_OLED_WIDGET_PROFILE_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_PROFILE_CUSTOM_Y, &profiles, &img_dsc);
 }
 
 static void draw_active_profile(lv_obj_t *canvas, const struct status_state *state) {
@@ -59,7 +59,7 @@ void draw_profile_status(lv_obj_t *canvas, const struct status_state *state) {
     lv_draw_image_dsc_init(&img_dsc);
 
     for (int i = 0; i < 5; i++) {
-        lv_canvas_draw_img(canvas, OFFSET_X + (i * 14), OFFSET_Y,
+        lv_canvas_draw_image(canvas, OFFSET_X + (i * 14), OFFSET_Y,
                            i == state->active_profile_index ? &profile_active : &profile, &img_dsc);
     }
 #else

@@ -378,7 +378,7 @@ const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_SLEEP_OLE
 };
 
 const lv_image_dsc_t sleep_oled = {
-    .header.always_zero = 0,
+    
     .header.w = 128,
     .header.h = 32,
     .data_size = 520,
