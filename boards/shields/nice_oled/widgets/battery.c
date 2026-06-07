@@ -94,9 +94,13 @@ static void draw_charging_level(lv_obj_t *canvas, const struct status_state *sta
   lv_label_set_text(_lbl, text);
   lv_obj_set_pos(_lbl, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_X, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_Y); }
 #if IS_ENABLED(CONFIG_NICE_EPAPER_ON)
-    lv_canvas_draw_image(canvas, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_X + 36, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_Y + 2, &bolt, &img_dsc);
+    { lv_obj_t *_img = lv_image_create(lv_obj_get_parent(canvas));
+  lv_image_set_src(_img, &bolt);
+  lv_obj_set_pos(_img, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_X + 36, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_Y + 2); }
 #else
-    lv_canvas_draw_image(canvas, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_X + 25, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_Y, &bolt, &img_dsc);
+    { lv_obj_t *_img = lv_image_create(lv_obj_get_parent(canvas));
+  lv_image_set_src(_img, &bolt);
+  lv_obj_set_pos(_img, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_X + 25, CONFIG_NICE_OLED_WIDGET_BATTERY_CUSTOM_Y); }
 #endif // CONFIG_NICE_EPAPER_ON
 }
 

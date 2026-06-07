@@ -9,25 +9,14 @@ void to_uppercase(char *str) {
 }
 
 void rotate_canvas(lv_obj_t *canvas, lv_color_t cbuf[]) {
-  static lv_color_t cbuf_tmp[CANVAS_HEIGHT * CANVAS_HEIGHT];
-  memcpy(cbuf_tmp, cbuf, sizeof(cbuf_tmp));
-
-  lv_image_dsc_t img;
-  img.data = (void *)cbuf_tmp;
-  img.header.cf = LV_COLOR_FORMAT_NATIVE;
-  img.header.w = CANVAS_HEIGHT;
-  img.header.h = CANVAS_HEIGHT;
-
-  lv_canvas_fill_bg(canvas, LVGL_BACKGROUND, LV_OPA_COVER);
-  lv_canvas_draw_image(canvas, 0, 0, &img, NULL);  /* rotation removed in LVGL 9 */
+  /* Rotation not supported in LVGL 9 */
 }
 
 void draw_background(lv_obj_t *canvas) {
   lv_draw_rect_dsc_t rect_black_dsc;
   init_rect_dsc(&rect_black_dsc, LVGL_BACKGROUND);
 
-  lv_canvas_draw_rect(canvas, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT,
-                      &rect_black_dsc);
+  lv_canvas_fill_bg(canvas, lv_color_black(), LV_OPA_COVER);
 }
 
 void init_label_dsc(lv_draw_label_dsc_t *label_dsc, lv_color_t color,
